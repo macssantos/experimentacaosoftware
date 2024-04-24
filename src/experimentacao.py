@@ -39,6 +39,12 @@ class Livraria:
         else:
             return 0
 
+
+    def atualizar_preco(self, isbn, novo_preco):
+            if isbn in self.catalogo:
+                self.catalogo[isbn]['livro'].preco = novo_preco
+            else:
+                print(f"O livro com ISBN {isbn} não está no catálogo.")
 # Exemplo de Uso
 livraria = Livraria()
 
