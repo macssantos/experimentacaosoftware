@@ -33,10 +33,16 @@ class Livraria:
     def listar_livros(self):
         return [livro_info['livro'] for livro_info in self.catalogo.values()]
 
+    def verificar_disponibilidade(self, isbn):
+        if isbn in self.catalogo:
+            return self.catalogo[isbn]['quantidade']
+        else:
+            return 0
+
 # Exemplo de Uso
 livraria = Livraria()
 
-livro1 = Livro("Python para Iniciantes", "Jo„o Silva", "978-3-16-148410-0", 50.0)
+livro1 = Livro("Python para Iniciantes", "Jo√£o Silva", "978-3-16-148410-0", 50.0)
 livro2 = Livro("Algoritmos e Estruturas de Dados", "Maria Souza", "978-3-16-148411-0", 80.0)
 
 livraria.adicionar_livro(livro1)
@@ -48,6 +54,6 @@ for livro in livraria.listar_livros():
 
 livraria.remover_livro("978-3-16-148411-0", 2)
 
-print("\nLista de Livros apÛs remover alguns:")
+print("\nLista de Livros ap√≥s remover alguns:")
 for livro in livraria.listar_livros():
     print(livro)
